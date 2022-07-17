@@ -1102,7 +1102,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 585289706}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1825854804}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: nextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &585289706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,7 +1236,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 659423830}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1825854804}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RollTheDice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &659423830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2652,6 +2676,24 @@ MonoBehaviour:
   playerPanel: {fileID: 1702496896}
   monsterPanel: {fileID: 368029148}
   diceCap: 9
+  playerDice:
+  - {fileID: 9179289956950616301, guid: bb51ef9d57132234685504b41243f35e, type: 3}
+  - {fileID: 9132182831639474747, guid: aeeceb9505c171542b6ae14c21d0a818, type: 3}
+  - {fileID: 4971620547601098287, guid: 00a94d2f82c90c441b6d4a9dec84eb84, type: 3}
+  - {fileID: 1973138882962817329, guid: ca307106b101ca448b2f0077280a5f30, type: 3}
+  - {fileID: 7668123757159751504, guid: d5a39ef32f9039f449669ba6380bfdaf, type: 3}
+  - {fileID: 80302948440317212, guid: 62603f843ab891443959ac6743806b9a, type: 3}
+  monsterDice:
+  - {fileID: 8683091536047931940, guid: 5ac0fe99e09f53a44b8f498cdbf6c796, type: 3}
+  - {fileID: 1467125645670394045, guid: 7886264e1d1aad04cb51a95264672c07, type: 3}
+  - {fileID: 6353499968144933907, guid: 8ce849364b37a6146a1d9f061ea4566f, type: 3}
+  - {fileID: 516719183820086315, guid: 795578d931da01c439651999813cd68e, type: 3}
+  - {fileID: 654781823457440190, guid: afbeea5d070d21247b9832999362659f, type: 3}
+  - {fileID: 4557687935618290978, guid: 9fa4635329cd798459a26f76576abd23, type: 3}
+  monsterHPValue: 0
+  monsterAtkValue: 0
+  playerHPValue: 0
+  playerAtkValue: 0
 --- !u!4 &1825854805
 Transform:
   m_ObjectHideFlags: 0

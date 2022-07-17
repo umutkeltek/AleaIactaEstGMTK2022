@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,15 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        
+        if (col.transform.tag == "Enemy")
+        {   if (col.transform.GetComponent<Enemyy>() != null)
+            {
+                col.transform.GetComponent<Enemyy>().TakeDamage(PlayerAtt.Instance.Str);
+            }
+           
+        }
+        Destroy(gameObject);
     }
 }

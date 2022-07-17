@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoSingleton<GameManager>
@@ -12,6 +13,7 @@ public class GameManager : MonoSingleton<GameManager>
     public TextMeshProUGUI playerAtk;
     public TextMeshProUGUI monsterHP;
     public TextMeshProUGUI monsterAtk;
+    
 
     public GameObject playerPanel;
     public GameObject monsterPanel;
@@ -23,6 +25,11 @@ public class GameManager : MonoSingleton<GameManager>
 
     public GameObject[] playerDice;
     public GameObject[] monsterDice;
+    
+    public int monsterHPValue;
+    public int monsterAtkValue;
+    public int playerHPValue;
+    public int playerAtkValue;
 
     public static GameManager gm { get; private set; } 
 
@@ -33,11 +40,14 @@ public class GameManager : MonoSingleton<GameManager>
         if (gm != null && gm != this)
         {
             Destroy(this);
+            DontDestroyOnLoad(GameManager.gm);
         }
         else
         {
             gm = this;
+            DontDestroyOnLoad(GameManager.gm);
         }
+        
 
     }
 
@@ -144,6 +154,26 @@ public class GameManager : MonoSingleton<GameManager>
     public void MonsterAtk()
     {
         monsterAtk.text = (monsterTotalScore*5).ToString();
+    }
+    public void Reset()
+    {
+        numberOfDiceRolls = 1;
+        playerTotalScore = 0;
+        monsterTotalScore = 0;
+    }
+    public void setValues()
+    {
+        monsterHPValue = monsterTotalScore * 10;
+        monsterAtkValue = monsterTotalScore * 5;
+        playerHPValue = playerTotalScore;
+        playerAtkValue = playerTotalScore;
+    }
+
+    public void nextScene()
+    {
+        setValues();
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 

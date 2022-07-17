@@ -9,17 +9,14 @@ public class RangeAttack : MonoBehaviour
     [SerializeField]private Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
-    public Animator animator;
+    [SerializeField] Animator animator;
 
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
+    
 
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
-        {   
+        {   animator.SetTrigger("Attack");
             Vector3 mousePosition = UtilsClass.GetMouseWorldPosition();
             Vector3 direction = (mousePosition - firePoint.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
