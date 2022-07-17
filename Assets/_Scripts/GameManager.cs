@@ -24,8 +24,7 @@ public class GameManager : MonoSingleton<GameManager>
     public GameObject[] playerDice;
     public GameObject[] monsterDice;
 
-    public static GameManager gm { get; private set; } 
-
+    public static GameManager gm { get; private set; }
 
     private void Awake()
     {
@@ -37,7 +36,14 @@ public class GameManager : MonoSingleton<GameManager>
         else
         {
             gm = this;
+            DontDestroyOnLoad(this.gameObject);
         }
+
+    }
+    private void Start()
+    {
+
+        DontDestroyOnLoad(this.gameObject);
 
     }
 
