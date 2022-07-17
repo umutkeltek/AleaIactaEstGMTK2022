@@ -6,19 +6,27 @@ using UnityEngine;
 
 public class RangeAttack : MonoBehaviour
 {
-    private Transform firePoint;
+    [SerializeField]private Transform firePoint;
     public GameObject bulletPrefab;
-   
+    public float bulletSpeed = 10f;
+    public Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
-        {
+        {   
             Vector3 mousePosition = UtilsClass.GetMouseWorldPosition();
             Vector3 direction = (mousePosition - firePoint.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            firePoint.eulerAngles = new Vector3(0, 0, angle);
+            
             Shoot();
+            
         }
     }
     /*void Shoot()
@@ -28,7 +36,8 @@ public class RangeAttack : MonoBehaviour
         rb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
     }*/
     private void Shoot()
-    {
+    {   animator.SetBool("isAttacking", true);
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        animator.SetBool("isAttacking", false);
     }
 }

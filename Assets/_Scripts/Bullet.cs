@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D rb;
     void Start()
     {
-        
+        rb.velocity = transform.right * speed;
     }
 
     // Update is called once per frame
