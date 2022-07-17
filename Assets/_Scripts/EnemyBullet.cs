@@ -7,14 +7,14 @@ public class EnemyBullet : MonoBehaviour
     public float speed = 2f;
     public Rigidbody2D rb;
     [SerializeField] private float bulletDestroyTime = 1.0f;
-    [SerializeField]private GameObject boss;
+    private GameObject boss;
     private int bossDamage;
         
     void Start()
     {
         rb.velocity = transform.right * speed;
         Destroy(this.gameObject, bulletDestroyTime);
-        bossDamage = boss.GetComponent<Enemyy>().str;
+        bossDamage = FindObjectOfType<Enemyy>().str;
         
 
     }
