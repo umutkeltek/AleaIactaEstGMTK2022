@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
         {   if (col.transform.GetComponent<Enemyy>() != null)
             {
                 col.transform.GetComponent<Enemyy>().TakeDamage(PlayerAtt.Instance.Str);
+                
             }
            
         }

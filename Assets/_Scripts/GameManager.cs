@@ -39,16 +39,13 @@ public class GameManager : MonoSingleton<GameManager>
         if (gm != null && gm != this)
         {
             Destroy(this);
-            DontDestroyOnLoad(GameManager.gm);
+            
         }
         else
         {
             gm = this;
 
             DontDestroyOnLoad(GameManager.gm);
-
-            
-
         }
         
 
@@ -147,17 +144,17 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void PlayerHP()
     {   
-        playerHP.text = playerTotalScore.ToString();
+        playerHP.text = (playerTotalScore*10).ToString();
     }
 
     public void PlayerAtk()
     {
-        playerAtk.text = playerTotalScore.ToString();
+        playerAtk.text = (playerTotalScore*2).ToString();
     }
 
     public void MonsterHP()
     {
-        monsterHP.text = (monsterTotalScore*10).ToString();
+        monsterHP.text = (monsterTotalScore*20).ToString();
     }
 
     public void MonsterAtk()
@@ -172,10 +169,21 @@ public class GameManager : MonoSingleton<GameManager>
     }
     public void setValues()
     {
-        monsterHPValue = monsterTotalScore * 10;
-        monsterAtkValue = monsterTotalScore * 5;
-        playerHPValue = playerTotalScore;
-        playerAtkValue = playerTotalScore;
+        if (monsterHPValue == 0 )
+        {
+            monsterHPValue = 250;
+            monsterAtkValue = 30;
+            playerHPValue = 70;
+            playerAtkValue = 25;
+        }
+        else
+        {
+            monsterHPValue = monsterTotalScore * 20;
+            monsterAtkValue = monsterTotalScore * 5;
+            playerHPValue = playerTotalScore * 10;
+            playerAtkValue = playerTotalScore * 2;
+        }
+        
     }
 
     public void nextScene()
@@ -185,5 +193,14 @@ public class GameManager : MonoSingleton<GameManager>
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
 }

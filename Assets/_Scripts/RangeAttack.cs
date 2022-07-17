@@ -10,7 +10,7 @@ public class RangeAttack : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
     [SerializeField] Animator animator;
-
+    public AudioSource aud;
     
 
     private void Update()
@@ -36,6 +36,6 @@ public class RangeAttack : MonoBehaviour
     {   animator.SetTrigger("Attack");
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         animator.SetTrigger("NotAttack");
-        
+        aud.Play();    
     }
 }

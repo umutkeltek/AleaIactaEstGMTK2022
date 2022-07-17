@@ -7,7 +7,9 @@ public class PlayerAtt : MonoSingleton<PlayerAtt>
 {
     [SerializeField]private int hp;
     [SerializeField]private int str;
-    
+    public GameObject go;
+
+
     public int Hp
     {
         get { return hp; }
@@ -31,6 +33,8 @@ public class PlayerAtt : MonoSingleton<PlayerAtt>
         if (hp <= 0)
         {
             hp = 0;
+            Time.timeScale = 0;
+            go.SetActive(true);
             Destroy(gameObject);
         }
     }

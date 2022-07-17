@@ -12,6 +12,7 @@ public class PlayerMovementt : MonoBehaviour
     private bool jump = false;
     private bool crouch = false;
 
+
     private void Update()
     {
         

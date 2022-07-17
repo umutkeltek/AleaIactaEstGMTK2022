@@ -13,6 +13,8 @@ public class Enemyy : MonoBehaviour
     [SerializeField] private Transform[] attackPos;
     [SerializeField] private Transform player;
     [SerializeField] private GameObject bullet;
+    public AudioSource aud;
+    public GameObject go;
 
     private void Start()
     {
@@ -48,20 +50,23 @@ public class Enemyy : MonoBehaviour
         if (health <= 0)
         {
             Die();
+
         }
     }
 
     private void Die()
     {
+
+        Time.timeScale = 0;
+        go.SetActive(true);
         Destroy(gameObject);
-        
     }
 
     public void BossAttack()
     {
         var whichAttackPosition = Random.Range(0, attackPos.Length);
         var bulletInstance = Instantiate(bullet, attackPos[whichAttackPosition].position, attackPos[whichAttackPosition].rotation);
-        
+
         /*if (Time.time > fireRate)
         {
             ;;
@@ -70,6 +75,6 @@ public class Enemyy : MonoBehaviour
 
         /*float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         attackPos[whichAttackPosition].eulerAngles = new Vector3(0, 0, angle);*/
-
+        aud.Play();
     }
 }

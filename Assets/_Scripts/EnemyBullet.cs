@@ -25,6 +25,7 @@ public class EnemyBullet : MonoBehaviour
         {   if (col.transform.GetComponent<PlayerAtt>() != null)
             {
                 col.transform.GetComponent<PlayerAtt>().takeDamage(bossDamage);
+                Destroy(this.gameObject);
             }
            
         }
