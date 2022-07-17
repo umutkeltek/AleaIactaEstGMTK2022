@@ -127,7 +127,7 @@ public class GameManager : MonoSingleton<GameManager>
 
 
     public void PlayerHP()
-    {
+    {   
         playerHP.text = playerTotalScore.ToString();
     }
 
