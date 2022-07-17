@@ -31,8 +31,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int playerHPValue;
     public int playerAtkValue;
 
-    public static GameManager gm { get; private set; } 
-
+    public static GameManager gm { get; private set; }
 
     private void Awake()
     {
@@ -45,9 +44,19 @@ public class GameManager : MonoSingleton<GameManager>
         else
         {
             gm = this;
+
             DontDestroyOnLoad(GameManager.gm);
+
+            
+
         }
         
+
+    }
+    private void Start()
+    {
+
+        DontDestroyOnLoad(this.gameObject);
 
     }
 

@@ -24,4 +24,14 @@ public class PlayerAtt : MonoSingleton<PlayerAtt>
         hp = GameManager.Instance.playerHPValue;
         str = GameManager.Instance.playerAtkValue;
     }
+
+    public void takeDamage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            hp = 0;
+            
+        }
+    }
 }

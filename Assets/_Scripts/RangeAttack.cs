@@ -16,7 +16,7 @@ public class RangeAttack : MonoBehaviour
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
-        {   animator.SetTrigger("Attack");
+        {   
             Vector3 mousePosition = UtilsClass.GetMouseWorldPosition();
             Vector3 direction = (mousePosition - firePoint.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -33,8 +33,9 @@ public class RangeAttack : MonoBehaviour
         rb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
     }*/
     private void Shoot()
-    {   animator.SetBool("isAttacking", true);
+    {   animator.SetTrigger("Attack");
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        animator.SetBool("isAttacking", false);
+        animator.SetTrigger("NotAttack");
+        
     }
 }

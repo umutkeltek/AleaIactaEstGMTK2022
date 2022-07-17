@@ -2690,10 +2690,12 @@ MonoBehaviour:
   - {fileID: 516719183820086315, guid: 795578d931da01c439651999813cd68e, type: 3}
   - {fileID: 654781823457440190, guid: afbeea5d070d21247b9832999362659f, type: 3}
   - {fileID: 4557687935618290978, guid: 9fa4635329cd798459a26f76576abd23, type: 3}
+
   monsterHPValue: 0
   monsterAtkValue: 0
   playerHPValue: 0
   playerAtkValue: 0
+
 --- !u!4 &1825854805
 Transform:
   m_ObjectHideFlags: 0
