@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5699302777442593611
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,3 +149,4 @@ MonoBehaviour:
   speed: 1
   rb: {fileID: 5699302777442593652}
   bulletDestroyTime: 10
+  boss: {fileID: 971566533584892070, guid: 26d2dfb8175a20c448e6d8a974cca5a1, type: 3}

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerAtt : MonoSingleton<PlayerAtt>
 {
-    private int hp;
-    private int str;
+    [SerializeField]private int hp;
+    [SerializeField]private int str;
     
     public int Hp
     {
@@ -31,7 +31,7 @@ public class PlayerAtt : MonoSingleton<PlayerAtt>
         if (hp <= 0)
         {
             hp = 0;
-            
+            Destroy(gameObject);
         }
     }
 }

@@ -7,13 +7,15 @@ public class EnemyBullet : MonoBehaviour
     public float speed = 2f;
     public Rigidbody2D rb;
     [SerializeField] private float bulletDestroyTime = 1.0f;
-    private GameObject boss;
+    [SerializeField]private GameObject boss;
+    private int bossDamage;
         
     void Start()
     {
         rb.velocity = transform.right * speed;
         Destroy(this.gameObject, bulletDestroyTime);
-        boss = GameObject.FindWithTag("Enemy");
+        bossDamage = boss.GetComponent<Enemyy>().str;
+        
 
     }
 
@@ -22,7 +24,7 @@ public class EnemyBullet : MonoBehaviour
         if (col.transform.tag == "Player")
         {   if (col.transform.GetComponent<PlayerAtt>() != null)
             {
-                col.transform.GetComponent<PlayerAtt>().takeDamage(boss.GetComponent<Enemyy>().str);
+                col.transform.GetComponent<PlayerAtt>().takeDamage(bossDamage);
             }
            
         }
